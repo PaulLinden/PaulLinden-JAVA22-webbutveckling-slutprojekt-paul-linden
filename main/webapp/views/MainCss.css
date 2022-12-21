@@ -89,3 +89,72 @@ h4{
 .customP{
 	height: 100px; 
 }
+
+.cookieConsent{
+	position: absolute;
+	left:38%;
+	bottom: 0;
+	padding: 30px 50px;
+	background-color: #808000;	
+	border-radius: 0;
+	animation: fadeIn ease 3s;
+  -webkit-animation: fadeIn ease 3s;
+  -moz-animation: fadeIn ease 3s;
+  -o-animation: fadeIn ease 3s;
+  -ms-animation: fadeIn ease 3s;
+}
+
+.dontDisplay{
+	display:none;
+	position: none;
+	left:0;
+	bottom: 0;
+	padding: 0;
+	background-color: none;	
+	border-radius: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}

@@ -9,16 +9,15 @@
 <link rel="stylesheet" href="MainCss.css">
 </head>
 <body>
-	
-	
+
 	<header>
 
 		<jsp:include page="./Header.jsp"></jsp:include>
-	
+
 	</header>
 
-	<nav class="pageNav">	
-	
+	<nav class="pageNav">
+
 		<form action="<%=request.getContextPath()%>/changePage" method="get">
 
 			<select name="Page">
@@ -32,12 +31,12 @@
 				<option value="Three">Third page</option>
 
 				<option value="Logout">---Logout---</option>
-		
+
 			</select> <input type="submit" value="Submit" />
-		
+
 		</form>
-	
-	</nav>	
+
+	</nav>
 
 	<h2>SECOND PAGE</h2>
 	<p>Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -49,26 +48,28 @@
 		the release of Letraset sheets containing Lorem Ipsum passages, and
 		more recently with desktop publishing software like Aldus PageMaker
 		including versions of Lorem Ipsum.</p>
-		
-		<form action="<%=request.getContextPath()%>/OWservlet" method="get" name="theNumber">
-         
-         <%
-         Integer hitsCount = (Integer)application.getAttribute("count");
-        
-         if( hitsCount ==null || hitsCount == 0 ) {
-            hitsCount = 1;
-         } else {
-            hitsCount += 1;
-         }
-         application.setAttribute("count", hitsCount);
 
-     	 %>
-        <input type="hidden" name="counter" id="counter" value="Haj"/> 
-         
-         <p>Total number of visits: <%= hitsCount%></p>
-     	
-     	
-      </form>
+	<form action="<%=request.getContextPath()%>/OWservlet" method="get"
+		name="theNumber">
+
+		<%
+		Integer hitsCount = (Integer) application.getAttribute("count");
+
+		if (hitsCount == null || hitsCount == 0) {
+			hitsCount = 1;
+		} else {
+			hitsCount += 1;
+		}
+		application.setAttribute("count", hitsCount);
+		%>
+		<input type="hidden" name="counter" id="counter" value="Haj" />
+
+		<p>
+			Total number of visits:
+			<%=hitsCount%></p>
+
+
+	</form>
 
 	<jsp:include page="./Footer.jsp"></jsp:include>
 </body>

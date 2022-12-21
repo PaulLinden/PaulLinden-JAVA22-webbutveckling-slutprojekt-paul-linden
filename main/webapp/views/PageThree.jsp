@@ -9,16 +9,15 @@
 <link rel="stylesheet" href="MainCss.css">
 </head>
 <body>
-	
-	
+
 	<header>
 
 		<jsp:include page="./Header.jsp"></jsp:include>
-	
+
 	</header>
 
-	<nav class="pageNav">	
-	
+	<nav class="pageNav">
+
 		<form action="<%=request.getContextPath()%>/changePage" method="get">
 
 			<select name="Page">
@@ -32,12 +31,12 @@
 				<option value="Three">Third page</option>
 
 				<option value="Logout">---Logout---</option>
-		
+
 			</select> <input type="submit" value="Submit" />
-		
+
 		</form>
-	
-	</nav>	
+
+	</nav>
 
 	<h2>THIRD PAGE</h2>
 	<p>Lorem Ipsum is simply dummy text of the printing and typesetting

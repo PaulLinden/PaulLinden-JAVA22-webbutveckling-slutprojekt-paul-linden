@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 @WebServlet("/changePage")
 public class changePage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -21,46 +20,40 @@ public class changePage extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		if (request.getSession(false) == null) {
 
-		if(request.getSession(false) == null) {
-			
 			System.out.println("Nice try!");
-			
+
 			response.sendRedirect("Index.jsp");
-		}
+		} 
 		else {
-		
-		String Page = request.getParameter("Page");
-		String forward = "";
-		
-		if (Page == null) {forward = "views/Main.jsp";}
-			
-		
-		
-		else {
-		
-			switch (Page){
-		
-		case "One": 
-			forward = "views/Main.jsp";
-		break;
-		
-		case "Two":forward = "views/PageTwo.jsp";
-		break;
-		
-		case "Three": forward = "views/PageThree.jsp";
-		break;
-		
-		case "Logout": forward = "/Logout";
-		break;
-		
-		}
-		}
-		
-		//response.setHeader("Cache-control", "no-cache, no-store, must-revalidate");
-		
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher(forward);
-		requestDispatcher.forward(request, response);
+
+			String Page = request.getParameter("Page");
+			String forward = "";
+
+			if (Page == null) {
+				forward = "views/Main.jsp";
+			}
+			else {
+
+				switch (Page) {
+
+				case "One":
+					forward = "views/Main.jsp";
+					break;
+				case "Two":
+					forward = "views/PageTwo.jsp";
+					break;
+				case "Three":
+					forward = "views/PageThree.jsp";
+					break;
+				case "Logout":
+					forward = "/Logout";
+					break;
+				}
+			}
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher(forward);
+			requestDispatcher.forward(request, response);
 		}
 	}
 

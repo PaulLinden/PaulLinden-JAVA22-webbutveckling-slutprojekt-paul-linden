@@ -23,18 +23,17 @@ public class Login extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		if (request.getSession(false) == null) {
-			
+
 			response.sendRedirect("Index.jsp");
 			System.out.println("Nope!!");
-		} 
-		
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		String username = request.getParameter("u_name");
 		String password = request.getParameter("pass");
 
@@ -52,31 +51,28 @@ public class Login extends HttpServlet {
 
 			if (username.equals(checkuser[i]) && password.equals(checkpass[i])) {
 				HttpSession session = request.getSession(false);
-				
+
 				if (request.getSession(false) == null) {
 					session = request.getSession();
 					System.out.println("Session created");
 				} else {
 					System.out.println("Session already exist");
 				}
-				
+
 				session.setMaxInactiveInterval(3600);
-				
 				session.setAttribute("name", bean);
-				//session.setMaxInactiveInterval(5);
-				
+				// session.setMaxInactiveInterval(5);
+
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/Main.jsp");
 				requestDispatcher.forward(request, response);
 
 				System.out.println("User: " + checkuser[i]);
-				
 			}
 		}
 
-		
 		response.setContentType("text/html");
 		RequestDispatcher rd = request.getRequestDispatcher("Index.jsp");
-		
+
 		if (username.equals("") && password.equals("")) {
 			request.setAttribute("mess", "Please insert username and password");
 			rd.include(request, response);

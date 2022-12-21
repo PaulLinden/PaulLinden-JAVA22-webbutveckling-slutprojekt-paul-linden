@@ -10,4 +10,4 @@
 <body>
 <footer>All rights reserved &#169;</footer>
 </body>
-</htm
+</html>
